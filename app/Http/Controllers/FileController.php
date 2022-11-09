@@ -17,7 +17,7 @@ class FileController extends Controller
         $docs->user_id = Auth::id();
         $docs->save();
 
-        return ['result'=>$docs];        
+        return ['result'=>$docs];       
         
     }
 }
