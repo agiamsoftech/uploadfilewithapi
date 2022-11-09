@@ -15,6 +15,7 @@
     <div class="row">  
         <form action="" method="post">
             <h2>Select image to upload:</h2>
+            <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
             <input type="file" name="image_file" id="image_file" class="form-control">
             <br>
             <input type="button" value="Upload Image" name="submit" id="submit" class="btn btn-primary btn-sm" onclick="uploadfile()">
@@ -35,11 +36,13 @@
             alert("Please upload file less than 500KB. Thanks!!");
             return false;
         }
-                
+              
+        var user_id = $('input[name=user_id]').val();
         var token = $('input[name=_token]').val();
         var file_data = $("#image_file").prop("files")[0];
         var form_data = new FormData();
         form_data.append("image_file", file_data);
+        form_data.append("user_id", user_id);      
         form_data.append("_token", token);      
  
         $.ajax({
