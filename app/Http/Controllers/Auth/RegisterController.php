@@ -85,16 +85,6 @@ class RegisterController extends Controller
         ]);
 
         $InsId=DB::table("users")->where('email','=',$data['email'])->first();
-        
-        Profile::create([
-
-            'user_id' => $InsId->id,
-            'title' => 'YourTitle'
-            
-        ]);
-        // Auth::login($new);
-        // return redirect('/profile/'. auth()->user()->id);
-        // return redirect("/profile/{Auth::user()->id;}");
-        
+                        
     }
 }
